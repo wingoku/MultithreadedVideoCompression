@@ -34,17 +34,12 @@ void asyncTasks(float i, int start, int end)
 
 		system(cmd.c_str());
 
-
-
 		cout << "Decompression Phase\n";
 
 		cmd = "kdu_v_expand -i compressed" + to_string(i) + ".mj2 -o unComp" + to_string(i) + ".vix";
 
 		system(cmd.c_str());
 
-
-		
-		//i += 0.1;
 	}
 
 }
@@ -73,20 +68,13 @@ void trimFile()
 		fileName = "unComp" + to_string(i) + ".vix";
 		file.open(fileName.c_str(), ios::binary | ios::ate);
 
-
-
 		cout << "seeking" << (int)file.tellg() - orgFileSize << " \n";
-
-
 
 		file.seekg((int)file.tellg() - orgFileSize, ios::beg);
 		file.read(trimmedData, orgFileSize);
 		file.close();
 
-
 		cout << "writing trimmed file\n";
-
-
 
 		fileName = "trimmed" + to_string(i) + ".yuv";
 
